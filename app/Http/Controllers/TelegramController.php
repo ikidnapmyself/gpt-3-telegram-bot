@@ -14,13 +14,18 @@ class TelegramController extends Controller
      */
     public function webhook(string $bot, string $token)
     {
-        $updates = Telegram::getWebhookUpdates();
+        $update = Telegram::getWebhookUpdate();
         $response = Telegram::getMe();
 
         $botId = $response->getId();
         $firstName = $response->getFirstName();
         $username = $response->getUsername();
 
-        dd($botId, $firstName, $username, $updates);
+        $chatId = $update->getMessage()->getChat()->getId();
+
+        Telegram::sendMessage([
+            'chat_id' => $chatId,
+            'text' => 'Hello',
+        ]);
     }
 }
