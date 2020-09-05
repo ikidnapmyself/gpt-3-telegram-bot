@@ -1,4 +1,6 @@
 <?php
+use \App\Commands\StartCommand;
+use \App\Commands\HelpCommand;
 
 return [
     /*
@@ -38,14 +40,10 @@ return [
             'certificate_path'    => env('TELEGRAM_CERTIFICATE_PATH_1', 'YOUR-CERTIFICATE-PATH'),
             'webhook_url'         => env('TELEGRAM_WEBHOOK_URL_1', 'YOUR-BOT-WEBHOOK-URL'),
             'commands'            => [
-                //Acme\Project\Commands\MyTelegramBot\BotCommand::class
+                StartCommand::class,
+                HelpCommand::class,
             ],
         ],
-
-        //        'mySecondBot' => [
-        //            'username'  => 'AnotherTelegram_Bot',
-        //            'token' => '123456:abc',
-        //        ],
     ],
 
     /*
