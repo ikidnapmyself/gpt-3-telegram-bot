@@ -17,6 +17,8 @@ class TelegramController extends Controller
         $update = Telegram::commandsHandler(true);
         $response = Telegram::getMe();
 
+        dd($update);
+
         $botId = $response->getId();
         $firstName = $response->getFirstName();
         $username = $response->getUsername();
